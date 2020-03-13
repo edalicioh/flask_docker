@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  flask-app:
+    build: ./app
+    container_name: "flask-app"
+    environment:
+      AppConfig: /app/settings.cfg
+      DB_PORT_27017_TCP_ADDR: 27017
+    volumes:
+      - ./app:/app:rw
+    ports:
+      - 5000:5000
